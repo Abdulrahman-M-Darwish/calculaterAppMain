@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="theme1">
+    <div class="container">
+      <header>
+        <h1>calc</h1>
+        <span class="theme">theme</span>
+        <div class="select">
+          <div class="options"><span>1</span><span>2</span><span>3</span></div>
+          <input class="slider" type="range" min="0" max="2" value="0" />
+        </div>
+      </header>
+      <form class="calculator" name="calc">
+        <input type="text" name="text" readonly class="screen" />
+        <div class="num-pad">
+          <span class="num" onclick="calc.text.value+='7'"><i>7</i></span>
+          <span class="num" onclick="calc.text.value+='8'"><i>8</i></span>
+          <span class="num" onclick="calc.text.value+='9'"><i>9</i></span>
+          <span class="num del" onclick="deleteNum()"><i>del</i></span>
+          <span class="num" onclick="calc.text.value+='4'"><i>4</i></span>
+          <span class="num" onclick="calc.text.value+='5'"><i>5</i></span>
+          <span class="num" onclick="calc.text.value+='6'"><i>6</i></span>
+          <span class="num" onclick="calc.text.value+='+'"><i>+</i></span>
+          <span class="num" onclick="calc.text.value+='1'"><i>1</i></span>
+          <span class="num" onclick="calc.text.value+='2'"><i>2</i></span>
+          <span class="num" onclick="calc.text.value+='3'"><i>3</i></span>
+          <span class="num" onclick="calc.text.value+='-'"><i>-</i></span>
+          <span class="num" onclick="calc.text.value+='.'"><i>.</i></span>
+          <span class="num" onclick="calc.text.value+='0'"><i>0</i></span>
+          <span class="num" onclick="calc.text.value+='/'"><i>/</i></span>
+          <span class="num" onclick="calc.text.value+='*'"><i>x</i></span>
+          <span class="num reset" onclick="calc.text.value=''"
+            ><i>reset</i></span
+          >
+          <span
+            class="num equal"
+            onclick="document.calc.text.value = eval(calc.text.value).toLocaleString()"
+            ><i>=</i></span
+          >
+        </div>
+      </form>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

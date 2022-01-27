@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+:root {
+  /* ### Theme 1 */
+  /* #### Backgrounds */
+  --Verydarkdesaturatedblue1: hsl(222, 26%, 31%); /*(main background)*/
+  --Verydarkdesaturatedblue2: hsl(
+    223,
+    31%,
+    20%
+  ); /*(toggle background, keypad background)*/
+  --Verydarkdesaturatedblue3: hsl(224, 36%, 15%); /*(screen background)*/
+  /* #### Keys */
+  --Desaturateddarkblue1: hsl(225, 21%, 49%); /*(key background)*/
+  --Desaturateddarkblue2: hsl(224, 28%, 35%); /*(key shadow)*/
+  --Red: hsl(6, 63%, 50%); /*(key background, toggle)*/
+  --Darkred: hsl(6, 70%, 34%); /*(key shadow)*/
+  --Lightgrayishorange: hsl(30, 25%, 89%); /*(key background)*/
+  --Grayishorange: hsl(28, 16%, 65%); /*(key shadow)*/
+  /* #### Text */
+  --Verydarkgrayishblue: hsl(221, 14%, 31%);
+  /* ### Theme 2 */
+  /* #### Backgrounds */
+  --Lightgray: hsl(0, 0%, 90%); /*(main background)*/
+  --Grayishred: hsl(0, 5%, 81%); /*(toggle background, keypad background)*/
+  --Verylightgray: hsl(0, 0%, 93%); /*(screen background)*/
+  /* #### Keys */
+  --Darkmoderatecyan: hsl(185, 42%, 37%); /*(key background)*/
+  --Verydarkcyan: hsl(185, 58%, 25%); /*(key shadow)*/
+  --Orange: hsl(25, 98%, 40%); /*(key background, toggle)*/
+  --Darkorange: hsl(25, 99%, 27%); /*(key shadow)*/
+  --Lightgrayishyellow: hsl(45, 7%, 89%); /*(key background)*/
+  --Darkgrayishorange: hsl(35, 11%, 61%); /*(key shadow)*/
+  /* #### Text */
+  --Verydarkgrayishyellow: hsl(60, 10%, 19%);
+  /* ### Theme 3 */
+  /* #### Backgrounds */
+  --Verydarkviolet1: hsl(268, 75%, 9%); /*(main background)*/
+  --Verydarkviolet2: hsl(
+    268,
+    71%,
+    12%
+  ); /*(toggle background, keypad background, screen background)*/
+  /* #### Keys */
+  --Darkviolet: hsl(281, 89%, 26%); /*(key background)*/
+  --Vividmagenta: hsl(285, 91%, 52%); /*(key shadow)*/
+  --Purecyan: hsl(176, 100%, 44%); /*(key background, toggle)*/
+  --Softcyan: hsl(177, 92%, 70%); /*(key shadow)*/
+  --Verydarkviolet: hsl(268, 47%, 21%); /*(key background)*/
+  --Darkmagenta: hsl(290, 70%, 36%); /*(key shadow)*/
+  /* #### Text */
+  --Lightyellow: hsl(52, 100%, 62%);
+  --Verydarkblue: hsl(198, 20%, 13%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 550px;
+  padding: 30px 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+header .theme {
+  text-transform: uppercase;
+  margin-left: auto;
+  font-size: 12px;
+  margin-right: 32px;
+}
+
+header .select {
+  position: relative;
+}
+
+header .select .options {
+  display: flex;
+  padding: 0 8px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateY(-100%);
+}
+
+header .select .options span {
+  font-size: 12px;
+  user-select: none;
+}
+
+header .select .options span:nth-child(2) {
+  flex: 1;
+  text-align: center;
+}
+
+header .select .slider {
+  appearance: none;
+  border-radius: 30px;
+  width: 70px;
+  padding: 5px;
+}
+
+header .select .slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.screen {
+  height: 130px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  text-align: end;
+  padding: 30px;
+  font-size: 42px;
+}
+
+.num-pad {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(5, auto);
+  border-radius: 10px;
+  padding: 30px;
+  min-height: 450px;
+  gap: 24px;
+}
+
+.num-pad .num {
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  position: relative;
+  border-radius: 10px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.num-pad .num::before {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+}
+
+.num-pad .num i {
+  position: relative;
+  font-style: normal;
+}
+
+.num-pad .num:active {
+  filter: brightness(2);
+}
+
+.equal,
+.reset {
+  grid-column: span 2;
+}
+
+.num.del,
+.num.reset {
+  color: white;
+  font-size: 18px;
+}
+
+.num.equal {
+  color: white;
+  font-size: 16px;
+}
+
+/* theme 1 */
+
+body.theme1 {
+  background-color: var(--Verydarkdesaturatedblue1);
+}
+
+body.theme1 header {
+  color: white;
+}
+
+body.theme1 header .select .slider {
+  background-color: var(--Verydarkdesaturatedblue2);
+}
+
+body.theme1 header .select .slider::-webkit-slider-thumb {
+  background-color: var(--Red);
+}
+
+body.theme1 .screen {
+  background-color: var(--Verydarkdesaturatedblue3);
+  color: white;
+}
+
+body.theme1 .num-pad {
+  background-color: var(--Verydarkdesaturatedblue2);
+}
+
+body.theme1 .num-pad .num {
+  color: var(--Verydarkgrayishblue);
+  background-color: var(--Grayishorange);
+}
+
+body.theme1 .num-pad .num::before {
+  background-color: var(--Lightgrayishorange);
+}
+
+body.theme1 .num.del,
+body.theme1 .num.reset {
+  background-color: var(--Desaturateddarkblue2);
+  color: white;
+}
+
+body.theme1 .num.del::before,
+body.theme1 .num.reset::before {
+  background-color: var(--Desaturateddarkblue1);
+}
+
+body.theme1 .num.equal {
+  background-color: var(--Darkred);
+}
+
+body.theme1 .num.equal::before {
+  background-color: var(--Red);
+}
+
+/* theme 2 */
+
+body.theme2 {
+  background-color: var(--Lightgray);
+}
+
+body.theme2 header {
+  color: var(--Verydarkgrayishyellow);
+}
+
+body.theme2 header .select .slider {
+  background-color: var(--Grayishred);
+}
+
+body.theme2 header .select .slider::-webkit-slider-thumb {
+  background-color: var(--Orange);
+}
+
+body.theme2 .screen {
+  background-color: var(--Verylightgray);
+  color: var(--Verydarkgrayishyellow);
+}
+
+body.theme2 .num-pad {
+  background-color: var(--Grayishred);
+}
+
+body.theme2 .num-pad .num {
+  color: var(--Verydarkgrayishyellow);
+  background-color: var(--Darkgrayishorange);
+}
+
+body.theme2 .num-pad .num::before {
+  background-color: var(--Lightgrayishyellow);
+}
+
+body.theme2 .num.del,
+body.theme2 .num.reset {
+  background-color: var(--Verydarkcyan);
+  color: white;
+}
+
+body.theme2 .num.del::before,
+body.theme2 .num.reset::before {
+  background-color: var(--Darkmoderatecyan);
+}
+
+body.theme2 .num.equal {
+  background-color: var(--Darkorange);
+  color: white;
+}
+
+body.theme2 .num.equal::before {
+  background-color: var(--Orange);
+}
+/* theme 3 */
+
+body.theme3 {
+  background-color: var(--Verydarkviolet1);
+}
+
+body.theme3 header {
+  color: var(--Lightyellow);
+}
+
+body.theme3 header .select .slider {
+  background-color: var(--Verydarkviolet2);
+}
+
+body.theme3 header .select .slider::-webkit-slider-thumb {
+  background-color: var(--Purecyan);
+}
+
+body.theme3 .screen {
+  background-color: var(--Verydarkviolet2);
+  color: var(--Lightyellow);
+}
+
+body.theme3 .num-pad {
+  background-color: var(--Verydarkviolet2);
+}
+
+body.theme3 .num-pad .num {
+  color: var(--Lightyellow);
+  background-color: var(--Darkmagenta);
+}
+
+body.theme3 .num-pad .num::before {
+  background-color: var(--Verydarkviolet);
+}
+
+body.theme3 .num.del,
+body.theme3 .num.reset {
+  background-color: var(--Vividmagenta);
+  color: white;
+}
+
+body.theme3 .num.del::before,
+body.theme3 .num.reset::before {
+  background-color: var(--Darkviolet);
+}
+
+body.theme3 .num.equal {
+  background-color: var(--Softcyan);
+  color: var(--Verydarkblue);
+}
+
+body.theme3 .num.equal::before {
+  background-color: var(--Purecyan);
+}
+
+@media (max-width: 767px) {
+  .num-pad {
+    gap: 16px;
+  }
+  /* .num {} */
+}
